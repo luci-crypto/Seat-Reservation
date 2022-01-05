@@ -1,0 +1,78 @@
+import java.util.Scanner;
+public class MyClass {
+    public static void main(String args[]) {
+      Scanner st = new Scanner(System.in);
+      
+      
+      System.out.println("\t \t \t Seat reservations");
+      System.out.println("");
+      char seats [] [] = new char [11] [10];
+      
+      for (int colyn=1; colyn<=4; colyn++)
+      {
+          System.out.print("    Col "+(colyn)+" ");
+      }
+      System.out.println();
+      for (int rowelyn=1; rowelyn<=10; rowelyn++)
+      {
+           System.out.print("Row "+(rowelyn)+"| \t");    
+           for (int colyn=1; colyn<=4; colyn++)  
+           {
+               seats [rowelyn][colyn] = '*';
+               System.out.print(seats[rowelyn][colyn]+"\t\t");
+           }
+          System.out.println();
+      }
+      
+      while(true)
+      {
+          System.out.println("Put the selected row and column number seperated by space: ");
+          int x = st.nextInt();
+          int y = st.nextInt();
+          System.out.println("Row: "+x);
+          System.out.println("Column: "+y);
+          
+          if ((x>0 && y>0))
+          {
+              System.out.println("\n \t\t Seat Reservation");
+              System.out.println();
+              System.out.println();
+              System.out.println("----------------------------------------------");
+              System.out.println();
+              for(int colyn=1; colyn<=4; colyn++)
+          
+                System.out.print("Col"+(colyn)+"\t\t");
+          {
+              
+              for (int rowelyn=1; rowelyn<=10; rowelyn++)
+              {
+                  System.out.print("Row"+(rowelyn)+"               ");
+                  for (int col =1; col<=4; col++)
+                  {
+                      seats[x][y]='X';
+                      System.out.print(seats[rowelyn][col]+"\t\t");
+                  }
+                  System.out.println();
+              }
+          }
+          else 
+          {
+              System.out.println("The program has stopped! Thank you!!!!!");
+              break;
+          }
+          System.out.println("You reserved the seat "[x][y]);
+          System.out.print("Do you want to reserve another seat? y/n");
+          char yn = st.next().charAt(0);
+          if (yn == 'y' ||  yn == 'Y')
+          {
+              continue;
+          }
+          else
+          {
+                System.out.println("Enjoy the seat muah muah chop chop");
+                break;
+          }
+        }
+}
+}
+}
